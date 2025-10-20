@@ -22,3 +22,10 @@ int main() {
     std::cout << std::endl;
     return 0;
 }
+void input(int ** n, size_t rows, size_t cols) {
+    for (size_t i = 0; i < rows && (std::cin); ++i) {
+        for (size_t j = 0; j < cols && (std::cin); ++j) {
+            std::cin >> n[i][j];
+        }
+    }
+}
