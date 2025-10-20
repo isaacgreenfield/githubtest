@@ -29,3 +29,6 @@ void input(int ** n, size_t rows, size_t cols) {
         }
     }
 }
+void output(const int * const * n, size_t rows, size_t cols) {
+
+}
