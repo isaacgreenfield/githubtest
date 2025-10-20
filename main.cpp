@@ -58,15 +58,16 @@ int ** convert(const int * t, size_t n, const size_t * lns, size_t rows) {
     int ** ans = new int*[rows];
     size_t temp = 0;
     try {
-        for (size_t i = 0; i < rows; ++i) {
-            for (size_t j = 0; j < lns[i]; ++j) {
-                ans[i][j] = t[temp + j];
-                temp++;
-            }
-        }
+        for (size_t i = 0; i < rows; ++i) ans[i] = new int[lns[i]];
     } catch (...) {
         remove(ans, rows);
         throw;
+    }
+    for (size_t i = 0; i < rows; ++i) {
+        for (size_t j = 0; j < lns[i]; ++j) {
+            ans[i][j] = t[temp + j];
+            temp++;
+        }
     }
     return ans;
 }
