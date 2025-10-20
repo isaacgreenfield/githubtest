@@ -30,5 +30,10 @@ void input(int ** n, size_t rows, size_t cols) {
     }
 }
 void output(const int * const * n, size_t rows, size_t cols) {
-
+    for (size_t i = 0; i < rows; ++i) {
+        for (size_t j = 0; j < cols; ++j) {
+            std::cout << n[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
 }
