@@ -1,7 +1,7 @@
 #include<iostream>
 
 int ** create(size_t rows, size_t cols);
-void remove(int ** n, size_t rows, size_t cols);
+void remove(int ** n, size_t rows);
 void input(int ** n, size_t rows, size_t cols);
 void output (const int * const * n, size_t rows, size_t cols);
 
@@ -13,15 +13,16 @@ int main() {
     //...
     input(n, rows, cols);
     if (!std::cin) {
-        remove(n, rows, cols);
+        remove(n, rows);
         return 1;
     }
     output(n, rows, cols);
     //...
-    remove(n, rows, cols);
+    remove(n, rows);
     std::cout << std::endl;
     return 0;
 }
+
 void input(int ** n, size_t rows, size_t cols) {
     for (size_t i = 0; i < rows && (std::cin); ++i) {
         for (size_t j = 0; j < cols && (std::cin); ++j) {
@@ -36,4 +37,9 @@ void output(const int * const * n, size_t rows, size_t cols) {
         }
         std::cout << std::endl;
     }
+}
+void remove(int ** n, size_t rows) {
+    //n[i], 0 <= i <= rows
+    for (size_t i = 0; i < rows; ++i) delete[] n[i];
+    delete[] n;
 }
