@@ -43,3 +43,6 @@ void remove(int ** n, size_t rows) {
     for (size_t i = 0; i < rows; ++i) delete[] n[i];
     delete[] n;
 }
+int ** create(size_t rows, size_t cols) {
+    return new int*[rows];
+}
