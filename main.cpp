@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstddef>
 int main() {
     size_t rows = 0, cols = 0;
     std::cin >> rows >> cols;
