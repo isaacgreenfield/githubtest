@@ -4,20 +4,20 @@ int ** create(size_t rows, size_t cols);
 void remove(int ** n, size_t rows);
 void input(int ** n, size_t rows, size_t cols);
 void output (const int * const * n, size_t rows, size_t cols);
+//hometask untill evening -> commit
+//look at phone -> photos :)
 
 int main() {
     size_t rows = 0, cols = 0;
     std::cin >> rows >> cols;
     if (!std::cin) return 1;
     int ** n = create(rows, cols);
-    //...
     input(n, rows, cols);
     if (!std::cin) {
         remove(n, rows);
         return 1;
     }
     output(n, rows, cols);
-    //...
     remove(n, rows);
     std::cout << std::endl;
     return 0;
@@ -39,10 +39,19 @@ void output(const int * const * n, size_t rows, size_t cols) {
     }
 }
 void remove(int ** n, size_t rows) {
-    //n[i], 0 <= i <= rows
     for (size_t i = 0; i < rows; ++i) delete[] n[i];
     delete[] n;
 }
 int ** create(size_t rows, size_t cols) {
-    return new int*[rows];
+    int ** result = new int*[rows];
+    size_t i = 0;
+    try {
+        for (;i < rows; ++i) {
+            result[i] = new int[cols];
+        }
+    } catch (...) {
+        remove(result, i);
+        throw;
+    }
+    return result;
 }
