@@ -2,6 +2,8 @@
 
 int ** create(size_t rows, size_t cols);
 void remove(int ** n, size_t rows, size_t cols);
+void input(int ** n, size_t rows, size_t cols);
+void output (const int * const * n, size_t rows, size_t cols);
 
 int main() {
     size_t rows = 0, cols = 0;
@@ -9,8 +11,12 @@ int main() {
     if (!std::cin) {
         return 1;
     }
-    //std::cout << rows << " " << cols << std::endl;
     int ** n = create(rows, cols);
+    //...
+    input(n, rows, cols);
+    output(n, rows, cols);
+    //...
     remove(n, rows, cols);
+    std::cout << std::endl;
     return 0;
 }
