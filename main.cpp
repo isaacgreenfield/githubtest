@@ -1,5 +1,3 @@
 int main() {
-    int temp = 1;
-    temp--;
-    return temp;
+    return 0;
 }
