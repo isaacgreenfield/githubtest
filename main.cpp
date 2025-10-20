@@ -4,8 +4,7 @@ int ** create(size_t rows, size_t cols);
 void remove(int ** n, size_t rows);
 void input(int ** n, size_t rows, size_t cols);
 void output (const int * const * n, size_t rows, size_t cols);
-//hometask untill evening -> commit
-//look at phone -> photos :)
+int ** convert(const int * t, size_t n, const size_t * lns, size_t rows);
 
 int main() {
     size_t rows = 0, cols = 0;
@@ -54,4 +53,20 @@ int ** create(size_t rows, size_t cols) {
         throw;
     }
     return result;
+}
+int ** convert(const int * t, size_t n, const size_t * lns, size_t rows) {
+    int ** ans = new int*[rows];
+    size_t temp = 0;
+    try {
+        for (size_t i = 0; i < rows; ++i) {
+            for (size_t j = 0; j < lns[i]; ++j) {
+                ans[i][j] = t[temp + j];
+                temp++;
+            }
+        }
+    } catch (...) {
+        remove(ans, rows);
+        throw;
+    }
+    return ans;
 }
